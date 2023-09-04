@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blogging Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+</head>
+<body>
+  
+  <header>
+    <a href="blog.html">
+        <h1 id="logo">THOUGHT CANVAS</h1>
+    </a>
+    <nav>
+        <ul id="menu">
+            <li><a href="blog.html" class="active">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero-outer">
+  <div id="hero-home">
+      <div id="cover-text-hero">
+          <h2>Discover how to become a better you.</h2>
+          <h3>Explore this guide and find simple changes you can make in day-to-day life</h3>
+      </div>
+  </div>
+</section>
+<hr>
+
+  <h1>Start Writing Your Blog</h1>
+  <form  class="blog_add">
+    <input type="text" id="title" placeholder="Title">
+    <input type="text" id="content" placeholder="Content">
+    <button onclick="addBlog()" type="button">Add Blog</button>
+  </form>
+  <div id="blogs">
+    <div class="blog">
+      <h2>Blog Title</h2>
+      <p>Blog Content</p>
+      <button onclick="deleteBlog(this)">Delete</button>
+    </div>
+
+  </div>
+  
+  <footer>
+    <ul id="social">
+        <li><a href="https://en-gb.facebook.com/" target="_blank" rel="noopener"
+                aria-label="vist our facebook page"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/?lang=en-gb" target="_blank" rel="noopener"
+                aria-label="vist our twitter page"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="vist our youtube page"><i
+                    class="fab fa-youtube"></i></a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                aria-label="vist our instagram page"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+    <ul id="contact">
+        <li><a href="contact.html" target="_blank" rel="noopener" aria-label="vist our contact page"><i
+                    class="fas fa-comment-dots"></i> Any questions? Vist our contact page</a></li>
+        <li><a href="https://www.google.co.in/maps?hl=en" target="_blank" rel="noopener" aria-label="our address"><i
+                    class="fas fa-map-marker-alt"></i> Find us at: Chitkara University, Chandigarh.</a></li>
+    </ul>
+
+</footer>
+
+
+  <script>
+    function addBlog() {
+      // Get the blog title and content from the user.
+      var title = document.getElementById('title').value
+      var content = document.getElementById('content').value
+      // Create a new blog element.
+      var blog = document.createElement("div");
+      blog.classList.add("blog");
+      // Create a new heading element for the blog title.
+      var heading = document.createElement("h2");
+      heading.innerHTML = title;
+      // Create a new paragraph element for the blog content.
+      var paragraph = document.createElement("p");
+      paragraph.innerHTML = content;
+      // Create a new button element to delete the blog.
+      var button = document.createElement("button");
+      button.innerHTML = "Delete";
+      button.onclick = function() {
+        deleteBlog(this);
+      };
+      // Add the heading, paragraph, and button elements to the blog element.
+      blog.appendChild(heading);
+      blog.appendChild(paragraph);
+      blog.appendChild(button);
+      // Add the blog element to the blogs div.
+      var blogs = document.getElementById("blogs");
+      blogs.appendChild(blog);
+    }
+    function deleteBlog(button) {
+      // Get the blog element that contains the button.
+      var blog = button.parentNode;
+      // Remove the blog element from the blogs div.
+      var blogs = document.getElementById("blogs");
+      blogs.removeChild(blog);
+    }
+  </script>
+</body>
+</html>
